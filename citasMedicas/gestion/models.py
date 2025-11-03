@@ -4,6 +4,7 @@ class Paciente(models.Model):
     nombre = models.CharField(max_length=100)
     edad = models.IntegerField()
     direccion = models.CharField(max_length=200)
+    
 
     def __str__(self):
         return self.nombre
@@ -20,6 +21,14 @@ class Cita(models.Model):
     medico = models.ForeignKey(Medico, on_delete=models.CASCADE)
     fecha = models.DateField()
     hora = models.TimeField()
+
+class login(models.Model):
+    usuario= models.CharField(max_length=50)
+    contraseña= models.CharField(max_length=50)
+
+
+
+    
 
     def __str__(self):
         return f"{self.paciente} - {self.fecha}"

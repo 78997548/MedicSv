@@ -1,0 +1,14 @@
+{% extends "base.html" %} {% load static %} {% block content %}
+<link rel="stylesheet" href="{% static 'gestion/css/menu.css' %}" />
+
+<div class="menu-container">
+  <h2>Menú Principal</h2>
+  <nav>
+    <li><a href="{% url 'lista_pacientes' %}">Gestión de Pacientes</a></li>
+    <li><a href="{% url 'lista_medicos' %}">Gestión de Médicos</a></li>
+    <li><a href="{% url 'lista_citas' %}">Gestión de Citas</a></li>
+    <li><a href="{% url 'logout' %}">Cerrar Sesión</a></li>
+  </nav>
+</div>
+
+{% endblock %}

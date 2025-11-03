@@ -1,0 +1,19 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+<link rel="stylesheet" href="{% static 'gestion/css/login.css' %}" />
+<div class="glass-container">
+  <div class="login-wrap">
+    <h2>Login</h2>
+    <div class="form">
+      <form method="post">
+        {% csrf_token %}
+        <input type="text" placeholder="username" name="un" required />
+        <input type="password" placeholder="password" name="pw" required />
+        <button type="submit">Sign in</button>
+        <a href="{% url 'registro' %}"
+          ><p>¿No tienes una cuenta? Puedes registrarte</p></a
+        >
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}

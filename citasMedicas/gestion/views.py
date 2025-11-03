@@ -1,7 +1,46 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Paciente, Medico, Cita
 from .forms import PacienteForm, MedicoForm, CitaForm
+from django.contrib.auth import authenticate,login,logout 
+from django.contrib.auth.models import User
 
+#pagina principal (login)
+def login_view(request):
+    if request.method=='POST':
+        username=request.POST.get('un')
+        password=request.POST.get('pw')
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
+            login (request, user )
+            return redirect('menu')
+    return render(request, 'principal/login.html')
+
+
+
+def register_view(request):
+    if request.method == 'POST':
+        username = request.POST.get('un')
+        password = request.POST.get('pw')
+        # Crear nuevo usuario
+        user = User.objects.create_user(username=username, password=password)
+        # Iniciar sesión automáticamente
+        login(request, user)
+        return redirect('menu')
+    return render(request, 'principal/registro.html')
+  
+    
+#logout
+def logout_view(request):
+    logout(request)
+    return redirect('login')
+
+
+def menu_view(request):
+    return render(request, 'principal/menu.html')
+
+    
+        
+    
 # ---------- PACIENTES ----------
 def lista_pacientes(request):
     pacientes = Paciente.objects.all()
@@ -16,6 +55,7 @@ def crear_paciente(request):
     else:
         form = PacienteForm()
     return render(request, 'pacientes/form.html', {'form': form})
+
 
 def editar_paciente(request, id):
     paciente = get_object_or_404(Paciente, id=id)
