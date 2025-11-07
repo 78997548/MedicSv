@@ -1,0 +1,46 @@
+/* Tipografía y color base */
+body {
+  background: #f7f9fc;              /* claro, limpio */
+}
+
+/* Contenedor un poco más estrecho para look profesional */
+.layout-narrow {
+  max-width: 1050px;
+}
+
+/* Tarjetas y tablas con sombra suave */
+.card, .table, .alert {
+  border-radius: 10px;
+}
+
+.card {
+  border: 1px solid #eaeef4;
+  box-shadow: 0 6px 18px rgba(17, 38, 146, 0.06);
+}
+
+.table thead th {
+  background: #f1f5fb;
+  border-bottom: 0;
+  font-weight: 600;
+}
+
+.table-hover tbody tr:hover {
+  background: #f7fbff;
+}
+
+/* Botones primarios más "elegantes" */
+.btn-primary, .bg-primary {
+  background-image: linear-gradient(180deg, rgba(255,255,255,.06), rgba(0,0,0,.05));
+}
+
+/* Espaciados suaves */
+section + section {
+  margin-top: 1.25rem;
+}
+
+/* Formularios */
+.form-label { font-weight: 600; }
+.form-control, .form-select {
+  border-radius: 8px;
+  border-color: #dde3ee;
+}
