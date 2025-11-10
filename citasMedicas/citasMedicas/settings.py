@@ -1,6 +1,3 @@
-import os
-from decouple import config
-from pathlib import Path
 """
 Django settings for citasMedicas project.
 
@@ -13,8 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
-
-
+from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -24,13 +20,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get('SECRET_KEY', 'i*na2zud#zb_r9-0i0u#1ge=ji5meq1c^&21r5fc+j(()opj*t')
+SECRET_KEY = 'django-insecure-#^^7ys!ym_e5u9@hq*14c=v9y%^j!bwq0#g*oa)w#zm8h_xghu'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', 'localhost').split(',')
-
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -126,3 +121,4 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
