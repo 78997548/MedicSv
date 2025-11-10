@@ -25,10 +25,8 @@ urlpatterns = [
     path('pacientes/eliminar/<int:id>/', views.eliminar_paciente, name='eliminar_paciente'),
 
     # Médicos
-    path('medicos/', views.lista_medicos, name='lista_medicos'),
-    path('medicos/nuevo/', views.crear_medico, name='crear_medico'),
-    path('medicos/editar/<int:id>/', views.editar_medico, name='editar_medico'),
-    path('medicos/eliminar/<int:id>/', views.eliminar_medico, name='eliminar_medico'),
+    path('medicos/',views.lista_medicos, name='lista_medicos'),
+  
 
     # Citas
     path('citas/', views.lista_citas, name='lista_citas'),

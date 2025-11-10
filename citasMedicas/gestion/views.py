@@ -3,6 +3,7 @@ from .models import Paciente, Medico, Cita
 from .forms import PacienteForm, MedicoForm, CitaForm
 from django.contrib.auth import authenticate,login,logout 
 from django.contrib.auth.models import User
+from django.contrib.auth.decorators import login_required
 
 #pagina principal (login)
 def login_view(request):
@@ -76,37 +77,11 @@ def eliminar_paciente(request, id):
     return render(request, 'pacientes/confirm_delete.html', {'obj': paciente})
 
 # ---------- MEDICOS ----------
+#se construira un logica para mostrar los medicos que esten en la platforma y se diferenciaran por medio de sus especialidades
+
 def lista_medicos(request):
     medicos = Medico.objects.all()
-    return render(request, 'medicos/lista.html', {'medicos': medicos})
-
-def crear_medico(request):
-    if request.method == 'POST':
-        form = MedicoForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect('lista_medicos')
-    else:
-        form = MedicoForm()
-    return render(request, 'medicos/form.html', {'form': form})
-
-def editar_medico(request, id):
-    medico = get_object_or_404(Medico, id=id)
-    if request.method == 'POST':
-        form = MedicoForm(request.POST, instance=medico)
-        if form.is_valid():
-            form.save()
-            return redirect('lista_medicos')
-    else:
-        form = MedicoForm(instance=medico)
-    return render(request, 'medicos/form.html', {'form': form})
-
-def eliminar_medico(request, id):
-    medico = get_object_or_404(Medico, id=id)
-    if request.method == 'POST':
-        medico.delete()
-        return redirect('lista_medicos')
-    return render(request, 'medicos/confirm_delete.html', {'obj': medico})
+    return render(request, 'medicos/medicos.html', {'medicos': medicos})
 
 # ---------- CITAS ----------
 def lista_citas(request):

@@ -1,0 +1,71 @@
+{% extends 'base.html' %} 
+{% load static %} 
+{% block content %}
+<link rel="stylesheet" href="{% static 'gestion/css/medicos.css' %}" />
+
+<header>
+  <h1>Médicos</h1>
+</header>
+<div class="grid-container">
+  {#se mostrarán los médicos aquí y sus especialidades.#}
+  <div class="card" id="div-medico-card">
+    <h2>Dr Wesley Rivera</h2>
+    <img
+      src="https://i.pinimg.com/1200x/be/4f/c5/be4fc5db3efb38e2030216bb0bef69c1.jpg"
+      id="img-medico-card"
+      alt="Foto del médico"
+    />
+    <p>Especialidad: Cardiología</p>
+    <p>telefono: +503-2345-2321</p>
+    <p>correo: Wesley@gmail.com</p>
+    <a
+      class="btn btn-success"
+      href="{% url 'lista_citas' %}"
+    >
+      agendar cita
+    </a>
+    
+    </button>
+  </div>
+
+  <div class="card" id="div-medico-card">
+    <h2>Dr Nestor Alarco</h2>
+    <img
+      src="https://i.pinimg.com/736x/e1/98/2d/e1982daf63531da7e7b5a7a3342f2189.jpg"
+      id="img-medico-card"
+      alt="Foto del médico"
+    />
+    <p>Especialidad: ginecologo</p>
+    <p>telefono: +503-7392-3432</p>
+    <p>correo: Nestor@gmail.com</p>
+    <a
+      class="btn btn-success"
+      href="{% url 'lista_citas' %}"
+    >
+      agendar cita
+    </a>
+    
+    </button>
+  </div>
+
+  <div class="card" id="div-medico-card">
+    <h2>Dr Gregorio Casa</h2>
+    <img
+      src="https://i.pinimg.com/1200x/70/f7/bf/70f7bfd34529405ddc207394ac5dd771.jpg"
+      id="img-medico-card"
+      alt="Foto del médico"
+    />
+    <p>Especialidad: Medico General</p>
+    <p>telefono: +503-6502-3829</p>
+    <p>correo: Gregorio@gmail.com</p>
+    <a
+      class="btn btn-success"
+      href="{% url 'lista_citas' %}"
+    >
+      agendar cita
+    </a>
+    
+    </button>
+  </div>
+</div>
+{% endblock %}
