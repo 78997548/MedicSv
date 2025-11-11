@@ -25,7 +25,7 @@ SECRET_KEY = 'i*na2zud#zb_r9-0i0u#1ge=ji5meq1c^&21r5fc+j(()opj*t'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['render.com', ]
 
 
 # Application definition
