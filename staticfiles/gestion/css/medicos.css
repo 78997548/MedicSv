@@ -1,0 +1,71 @@
+header {
+    text-align: center;
+    margin: 2rem 0;
+    font-size: 2.5rem;
+    color: #2c3e50;
+}
+
+.grid-container {
+    display: flex;
+    flex-wrap: wrap;
+    /* permite que bajen a siguiente fila en pantallas pequeñas */
+    gap: 2rem;
+    padding: 2rem;
+    justify-content: flex-start;
+    /* alineados en fila */
+    align-items: flex-start;
+}
+
+.grid-container>.card {
+    flex: 0 1 300px;
+    /* ancho base por tarjeta, respeta el gap */
+}
+
+.card {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+    text-align: center;
+    transition: transform 0.3s ease;
+    justify-content: center;
+
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card h2 {
+    color: #333;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+#img-medico-card {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 1rem auto;
+    border: 3px solid #f0f0f0;
+}
+
+.card p {
+    color: #666;
+    margin: 0.5rem 0;
+    justify-content: center;
+}
+
+.card .btn {
+    margin-top: 1rem;
+    padding: 0.5rem 1.5rem;
+    border-radius: 5px;
+    text-transform: capitalize;
+    font-weight: 500;
+    transition: opacity 0.3s ease;
+}
+
+.card .btn:hover {
+    opacity: 0.9;
+}
