@@ -1,21 +1,39 @@
-{% extends 'base.html' %}
-{% block content %}
-<h1>Pacientes</h1>
-<a href="{% url 'crear_paciente' %}" class="btn btn-primary mb-3">Nuevo Paciente</a>
 <table class="table table-bordered">
-  <tr><th>Nombre</th><th>Edad</th><th>Dirección</th><th>Acciones</th></tr>
+  <tr>
+    <th>Nombre</th>
+    <th>Edad</th>
+    <th>Dirección</th>
+    <th>Acciones</th>
+  </tr>
+
+  <!-- Ejemplo fijo -->
+  <tr>
+    <td>Johana</td>
+    <td>28</td>
+    <td>San Salvador</td>
+    <td>
+      <a href="#" class="btn btn-warning btn-sm">Editar</a>
+      <a href="#" class="btn btn-danger btn-sm">Eliminar</a>
+    </td>
+  </tr>
+
   {% for p in pacientes %}
   <tr>
     <td>{{ p.nombre }}</td>
     <td>{{ p.edad }}</td>
     <td>{{ p.direccion }}</td>
     <td>
-      <a href="{% url 'editar_paciente' p.id %}" class="btn btn-warning btn-sm">Editar</a>
-      <a href="{% url 'eliminar_paciente' p.id %}" class="btn btn-danger btn-sm">Eliminar</a>
+      <a href="{% url 'editar_paciente' p.id %}" class="btn btn-warning btn-sm"
+        >Editar</a
+      >
+      <a href="{% url 'eliminar_paciente' p.id %}" class="btn btn-danger btn-sm"
+        >Eliminar</a
+      >
     </td>
   </tr>
   {% empty %}
-  <tr><td colspan="4">No hay pacientes registrados.</td></tr>
+  <tr>
+    <td colspan="4">No hay pacientes registrados.</td>
+  </tr>
   {% endfor %}
 </table>
-{% endblock %}
