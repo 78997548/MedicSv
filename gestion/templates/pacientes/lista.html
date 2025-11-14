@@ -1,5 +1,8 @@
-{% extends 'base.html' %} {% load static %} {% block title %}Lista de
-Pacientes{% endblock %} {% block content %}
+{% extends 'base.html' %} {% block content %}
+<h1>Pacientes</h1>
+<a href="{% url 'crear_paciente' %}" class="btn btn-primary mb-3"
+  >Nuevo Paciente</a
+>
 <table class="table table-bordered">
   <tr>
     <th>Nombre</th>
@@ -7,18 +10,6 @@ Pacientes{% endblock %} {% block content %}
     <th>Dirección</th>
     <th>Acciones</th>
   </tr>
-
-  <!-- Ejemplo fijo -->
-  <tr>
-    <td>Johana</td>
-    <td>28</td>
-    <td>San Salvador</td>
-    <td>
-      <a href="#" class="btn btn-warning btn-sm">Editar</a>
-      <a href="#" class="btn btn-danger btn-sm">Eliminar</a>
-    </td>
-  </tr>
-
   {% for p in pacientes %}
   <tr>
     <td>{{ p.nombre }}</td>
@@ -39,3 +30,4 @@ Pacientes{% endblock %} {% block content %}
   </tr>
   {% endfor %}
 </table>
+{% endblock %}
