@@ -91,26 +91,29 @@ def lista_citas(request):
 
 
 def crear_cita(request):
-    medicos = Medico.objects.all()  # obtenemos todos los médicos
+    # Lista estática de médicos
+    medicos = [
+        {"id": 1, "nombre": "Dr Wesley Rivera", "especialidad": "Cardiología"},
+        {"id": 2, "nombre": "Dr Nestor Alarco", "especialidad": "Ginecología"},
+        {"id": 3, "nombre": "Dr Gregorio Casa", "especialidad": "Medico General"},
+        {"id": 4, "nombre": "Dr Mario Salazar", "especialidad": "Cardiología"},
+        {"id": 5, "nombre": "Dr Meredith Grey", "especialidad": "Neurocirugía"},
+        {"id": 6, "nombre": "Dr Glenda Cortez", "especialidad": "Endocrinología"},
+        {"id": 7, "nombre": "Dr Juan Blanco", "especialidad": "Medico General"},
+    ]
 
     if request.method == 'POST':
         medico_id = request.POST.get('medico')
         fecha = request.POST.get('fecha')
         hora = request.POST.get('hora')
 
-        # buscamos el médico seleccionado
-        medico = get_object_or_404(Medico, id=medico_id)
+        # Aquí no guardamos en base de datos, solo mostramos como ejemplo
+        print(f"Cita creada: Médico {medico_id}, Fecha {fecha}, Hora {hora}")
 
-        # creamos la cita (sin paciente, como pediste)
-        Cita.objects.create(
-            medico=medico,
-            fecha=fecha,
-            hora=hora
-        )
         return redirect('lista_citas')
 
-    # si es GET, mostramos el formulario con la lista de médicos
     return render(request, 'citas/form.html', {'medicos': medicos})
+
 
 
 def editar_cita(request, id):
