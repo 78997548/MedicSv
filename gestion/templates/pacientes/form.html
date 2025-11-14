@@ -1,5 +1,4 @@
-{% extends "base.html" %}
-{% block title %}Paciente — Formulario{% endblock %}
+{% extends "base.html" %} {% block title %}Paciente — Formulario{% endblock %}
 {% block content %}
 
 <div class="card shadow-sm">
@@ -10,18 +9,24 @@
       {% csrf_token %}
       <div class="row g-3">
         {% for field in form %}
-          <div class="col-md-6">
-            <label class="form-label">{{ field.label }}</label>
-            {{ field }}
-            {% if field.help_text %}<div class="form-text">{{ field.help_text }}</div>{% endif %}
-            {% for error in field.errors %}<div class="text-danger small">{{ error }}</div>{% endfor %}
-          </div>
+        <div class="col-md-6">
+          <label class="form-label">{{ field.label }}</label>
+          {{ field }} {% if field.help_text %}
+          <div class="form-text">{{ field.help_text }}</div>
+          {% endif %} {% for error in field.errors %}
+          <div class="text-danger small">{{ error }}</div>
+          {% endfor %}
+        </div>
         {% endfor %}
       </div>
 
       <div class="d-flex gap-2 mt-3">
-        <button class="btn btn-primary" type="submit"><i class="bi bi-check2-circle"></i> Guardar</button>
-        <a class="btn btn-outline-secondary" href="{% url 'pacientes_list' %}">Cancelar</a>
+        <button class="btn btn-primary" type="submit">
+          <i class="bi bi-check2-circle"></i> Guardar
+        </button>
+        <a class="btn btn-outline-secondary" href="{% url 'lista_pacientes' %}"
+          >Cancelar</a
+        >
       </div>
     </form>
   </div>

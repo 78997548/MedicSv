@@ -53,6 +53,8 @@ def crear_paciente(request):
         if form.is_valid():
             form.save()
             return redirect('lista_pacientes')
+        else:
+            print("Errores del formulario:", form.errors)
     else:
         form = PacienteForm()
     return render(request, 'pacientes/form.html', {'form': form})
