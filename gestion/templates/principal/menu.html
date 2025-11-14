@@ -3,9 +3,13 @@
 
 <!-- Hero Section -->
 <header class="hero">
+  <div class="hero-overlay"></div>
   <div class="hero-content">
-    <h1>Medic SV</h1>
-    <p>
+    <div class="hero-header">
+      <h1 class="hero-title">Medic SV</h1>
+      <p class="hero-subtitle">Plataforma Médica Salvadoreña</p>
+    </div>
+    <p class="hero-description">
       Bienvenido a Medic SV, una plataforma médica 100% salvadoreña y gratuita
       en la que puedes ver perfiles de doctores y sus especialidades, así como
       agendar citas de manera rápida y segura.
@@ -16,20 +20,27 @@
 
 <!-- Opciones principales -->
 <section class="features">
-  <div class="feature-box">
-    <h3>Gestión de Pacientes</h3>
-    <p>Administra los datos de tus pacientes de forma rápida y segura.</p>
-    <a href="{% url 'lista_pacientes' %}" class="btn-feature">Ir a Pacientes</a>
-  </div>
-  <div class="feature-box">
-    <h3>Gestión de Médicos</h3>
-    <p>Consulta perfiles médicos y sus especialidades disponibles.</p>
-    <a href="{% url 'lista_medicos' %}" class="btn-feature">Ir a Médicos</a>
-  </div>
-  <div class="feature-box">
-    <h3>Gestión de Citas</h3>
-    <p>Agéndalas fácilmente y mantén tu historial actualizado.</p>
-    <a href="{% url 'lista_citas' %}" class="btn-feature">Ir a Citas</a>
+  <div class="features-container">
+    <div class="feature-box">
+      <div class="feature-icon">👥</div>
+      <h3>Gestión de Pacientes</h3>
+      <p>Administra los datos de tus pacientes de forma rápida y segura.</p>
+      <a href="{% url 'lista_pacientes' %}" class="btn-feature"
+        >Ir a Pacientes</a
+      >
+    </div>
+    <div class="feature-box">
+      <div class="feature-icon">🏥</div>
+      <h3>Gestión de Médicos</h3>
+      <p>Consulta perfiles médicos y sus especialidades disponibles.</p>
+      <a href="{% url 'lista_medicos' %}" class="btn-feature">Ir a Médicos</a>
+    </div>
+    <div class="feature-box">
+      <div class="feature-icon">📅</div>
+      <h3>Gestión de Citas</h3>
+      <p>Agéndalas fácilmente y mantén tu historial actualizado.</p>
+      <a href="{% url 'lista_citas' %}" class="btn-feature">Ir a Citas</a>
+    </div>
   </div>
 </section>
 {% endblock %}
