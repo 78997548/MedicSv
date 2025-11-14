@@ -22,12 +22,6 @@ class Cita(models.Model):
     fecha = models.DateField()
     hora = models.TimeField()
 
-class login(models.Model):
-    usuario= models.CharField(max_length=50)
-    contraseña= models.CharField(max_length=50)
-
-
-
     
 
     def __str__(self):
