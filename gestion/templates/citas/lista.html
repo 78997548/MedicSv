@@ -1,12 +1,12 @@
 {% extends 'base.html' %} {% block content %}
 <h2>Nueva Cita</h2>
 
+<!-- Formulario para crear cita -->
 <form method="post">
   {% csrf_token %}
-
   <div class="mb-3">
     <label for="medico" class="form-label">Seleccione un médico</label>
-    <select id="medico" name="medico" class="form-select">
+    <select id="medico" name="medico" class="form-select" required>
       {% for m in medicos %}
       <option value="{{ m.id }}">{{ m.nombre }} - {{ m.especialidad }}</option>
       {% empty %}
@@ -27,4 +27,42 @@
 
   <button type="submit" class="btn btn-success">Guardar</button>
 </form>
+
+<hr />
+
+<!-- Tabla de citas registradas -->
+<h3 class="mt-4">Citas Registradas</h3>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Médico</th>
+      <th>Especialidad</th>
+      <th>Fecha</th>
+      <th>Hora</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for c in citas %}
+    <tr>
+      <td>{{ c.medico.nombre }}</td>
+      <td>{{ c.medico.especialidad }}</td>
+      <td>{{ c.fecha }}</td>
+      <td>{{ c.hora }}</td>
+      <td>
+        <a href="{% url 'editar_cita' c.id %}" class="btn btn-warning btn-sm"
+          >Editar</a
+        >
+        <a href="{% url 'eliminar_cita' c.id %}" class="btn btn-danger btn-sm"
+          >Eliminar</a
+        >
+      </td>
+    </tr>
+    {% empty %}
+    <tr>
+      <td colspan="5">No hay citas registradas.</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
 {% endblock %}

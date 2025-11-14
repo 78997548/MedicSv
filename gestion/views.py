@@ -85,39 +85,38 @@ def lista_medicos(request):
 
 # ---------- CITAS ----------
 def lista_citas(request):
-    citas = []  # si no usas base de datos, puedes dejarlo vacío
-    medicos = [
-        {"id": 1, "nombre": "Dr Wesley Rivera", "especialidad": "Cardiología"},
-        {"id": 2, "nombre": "Dr Nestor Alarco", "especialidad": "Ginecología"},
-        {"id": 3, "nombre": "Dr Gregorio Casa", "especialidad": "Medico General"},
-        {"id": 4, "nombre": "Dr Mario Salazar", "especialidad": "Cardiología"},
-        {"id": 5, "nombre": "Dr Meredith Grey", "especialidad": "Neurocirugía"},
-        {"id": 6, "nombre": "Dr Glenda Cortez", "especialidad": "Endocrinología"},
-        {"id": 7, "nombre": "Dr Juan Blanco", "especialidad": "Medico General"},
-    ]
-    return render(request, 'citas/lista.html', {'citas': citas, 'medicos': medicos})
-
-
-
-def crear_cita(request):
-    # Lista estática de médicos
-    medicos = [
-        {"id": 1, "nombre": "Dr Wesley Rivera", "especialidad": "Cardiología"},
-        {"id": 2, "nombre": "Dr Nestor Alarco", "especialidad": "Ginecología"},
-        {"id": 3, "nombre": "Dr Gregorio Casa", "especialidad": "Medico General"},
-        {"id": 4, "nombre": "Dr Mario Salazar", "especialidad": "Cardiología"},
-        {"id": 5, "nombre": "Dr Meredith Grey", "especialidad": "Neurocirugía"},
-        {"id": 6, "nombre": "Dr Glenda Cortez", "especialidad": "Endocrinología"},
-        {"id": 7, "nombre": "Dr Juan Blanco", "especialidad": "Medico General"},
-    ]
+    citas = Cita.objects.select_related('medico').all()
+    medicos = Medico.objects.all()
 
     if request.method == 'POST':
         medico_id = request.POST.get('medico')
         fecha = request.POST.get('fecha')
         hora = request.POST.get('hora')
 
-        # Aquí no guardamos en base de datos, solo mostramos como ejemplo
-        print(f"Cita creada: Médico {medico_id}, Fecha {fecha}, Hora {hora}")
+        medico = get_object_or_404(Medico, id=medico_id)
+        Cita.objects.create(medico=medico, fecha=fecha, hora=hora)
+
+        return redirect('lista_citas')
+
+    return render(request, 'citas/lista.html', {'citas': citas, 'medicos': medicos})
+
+
+
+def crear_cita(request):
+    medicos = Medico.objects.all()
+
+    if request.method == 'POST':
+        medico_id = request.POST.get('medico')
+        fecha = request.POST.get('fecha')
+        hora = request.POST.get('hora')
+
+        medico = get_object_or_404(Medico, id=medico_id)
+
+        # Si tienes pacientes en la base, puedes usar uno aquí
+        # paciente = get_object_or_404(Paciente, id=algún_id)
+
+        # Si no usas paciente, asegúrate que el modelo lo permita (null=True, blank=True)
+        Cita.objects.create(medico=medico, fecha=fecha, hora=hora)
 
         return redirect('lista_citas')
 
