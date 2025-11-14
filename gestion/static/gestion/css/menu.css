@@ -30,13 +30,15 @@ body {
 
 /* <CHANGE> Hero Section with elegant gradient and refined typography */
 .hero {
-    background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-light) 100%);
+    background: url('https://i.pinimg.com/736x/2a/13/2a/2a132aa271fadaba8fa2e0bd05e51cd7.jpg') center center no-repeat;
+    background-size: cover;
     color: var(--neutral-white);
     padding: 80px 20px;
     text-align: center;
     position: relative;
     overflow: hidden;
 }
+
 
 .hero-overlay {
     position: absolute;
