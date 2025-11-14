@@ -1,40 +1,85 @@
-/* Estilos para el header */
-header {
-    background-color: #f0f4f8;
-    /* Color suave de fondo */
-    color: #333;
-    /* Color de texto oscuro para contraste */
-    padding: 20px;
+/* Hero Section */
+.hero {
+    background: url('https://source.unsplash.com/1600x400/?healthcare') no-repeat center center;
+    background-size: cover;
+    color: white;
+    padding: 60px 20px;
     text-align: center;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: relative;
 }
 
-/* Estilos para el nav */
-nav {
-    background-color: #e0e7ef;
-    /* Color suave de fondo */
-
-    /* Color de texto oscuro para contraste */
-    padding: 15px;
-    display: flex;
-    justify-content: space-around;
-    border-bottom: 2px solid #ccc;
-    /* Detalle en el borde */
+.hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 30px;
+    border-radius: 10px;
 }
 
-/* Estilos para los enlaces en el nav */
-nav a {
-    color: #007bff;
-    /* Color de enlace */
-    text-decoration: none;
-    padding: 10px 15px;
+.hero h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+.btn-logout {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    background-color: #dc3545;
+    color: white;
+    padding: 10px 20px;
     border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
     transition: background-color 0.3s;
 }
 
-nav a:hover {
-    background-color: #d1e7fd;
-    /* Color de fondo al pasar el ratón */
-    color: #0056b3;
-    /* Color de texto al pasar el ratón */
+.btn-logout:hover {
+    background-color: #c82333;
+}
+
+/* Features Section */
+.features {
+    display: flex;
+    justify-content: space-around;
+    padding: 40px 20px;
+    background-color: #f8f9fa;
+}
+
+.feature-box {
+    background-color: white;
+    border-radius: 10px;
+    padding: 30px;
+    width: 30%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.feature-box h3 {
+    margin-bottom: 15px;
+    color: #007bff;
+}
+
+.feature-box p {
+    margin-bottom: 20px;
+    color: #555;
+}
+
+.btn-feature {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.btn-feature:hover {
+    background-color: #0056b3;
 }
